@@ -129,11 +129,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Hitokage.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Pokemon.cpp" />
+    <ClCompile Include="Zenigame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Calculation.h" />
+    <ClInclude Include="Hitokage.h" />
+    <ClInclude Include="Pokemon.h" />
+    <ClInclude Include="Zenigame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
