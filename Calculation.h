@@ -18,7 +18,7 @@ public:
 		if (a <= b) {//戻り値は引数によって変化するのでキャストを使って整える
 			return	static_cast<Type1> (a);
 		}
-		else if (b < a) {
+		else {
 			return static_cast<Type1> (b);
 		}
 	}
