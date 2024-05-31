@@ -2,6 +2,7 @@
 
 Pokemon::Pokemon()
 {
+
 }
 
 Pokemon::~Pokemon()
