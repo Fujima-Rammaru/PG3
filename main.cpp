@@ -1,21 +1,24 @@
 #include<stdio.h>
-#include"Calculation.h" 
+#include<thread> 
+void Thread1() {
+	printf("thread 1\n");
+}
 
+void Thread2() {
+	printf("thread 2\n");
+}
+
+void Thread3() {
+	printf("thread 3\n");
+}
 
 int main() {
-	Calculation<int, int>       num1(1, 2);
-	Calculation<float, float>   num2(3.1f, 2.9f);
-	Calculation<double, double> num3(4.5, 4.56);
-	Calculation<int, float>     num4(4, 4.5f);
-	Calculation<int, double>    num5(4, 3.99);
-	Calculation<double, float>  num6(4.21, 4.5f);
-
-	printf("%d\n", num1.Min());
-	printf("%3.2f\n", num2.Min());
-	printf("%lf\n", num3.Min());
-	printf("%d\n", num4.Min());
-	printf("%d\n", num5.Min());
-	printf("%lf\n", num6.Min());
+	std::thread th1(Thread1);
+	th1.join();
+	std::thread th2(Thread2);
+	th2.join();
+	std::thread th3(Thread3);
+	th3.join();
 
 	return 0;
 }
