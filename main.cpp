@@ -1,24 +1,24 @@
 #include<stdio.h>
-#include<thread> 
-void Thread1() {
-	printf("thread 1\n");
-}
-
-void Thread2() {
-	printf("thread 2\n");
-}
-
-void Thread3() {
-	printf("thread 3\n");
-}
+#include<chrono> 
+#include<string>
+using namespace std::chrono;
 
 int main() {
-	std::thread th1(Thread1);
-	th1.join();
-	std::thread th2(Thread2);
-	th2.join();
-	std::thread th3(Thread3);
-	th3.join();
+	system_clock::time_point start, end;
+	std::string str(100000, 'a');
+	double elapsed;
+
+	start = system_clock::now();//計測開始時間
+	std::string str2 = str;//strをコピー
+	end = system_clock::now();// 計測終了時間
+	elapsed = duration_cast<microseconds>(end - start).count();//処理に要した時間
+	printf("コピーにかかった時間->%lf(マイクロ秒)\n\n", elapsed);
+
+	start = system_clock::now();
+	std::string str3 = std::move(str);//strの中身をstr3にムーブ
+	end = system_clock::now();
+	elapsed = duration_cast<microseconds>(end - start).count();
+	printf("移動にかかった時間->%lf(マイクロ秒)", elapsed);
 
 	return 0;
 }
